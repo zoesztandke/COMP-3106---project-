@@ -1,0 +1,15 @@
+\subsubsection{Random Forest Performance}
+Random Forest Classifiers do not require separable data to find meaningful patterns, as demonstrated. However, noise reduction resulted in significantly better results. \\ 
+
+It should however be noted that while Random Forest achieved a 76.9\% accuracy on the temporally smoothed data, as seen in Figure~\ref{fig:rfTemporalSmoothing}, the model performed exceedingly well at classifying label 1 (eyes closed), whereas it achieved only a 60\% accuracy for label 0 (eyes open). Interestingly, the classes were balanced in the training data, and the imbalance was only present in the test data (Table~\ref{tab:smoothedDistribution}). This suggests that the class imbalance was not the reason for this trouble generalising; more likely, this has to do with the strength of the signals. 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c||c|c|}
+        \hline 
+        Set & Label 0 (eyes open) & Label 1 (eyes closed) \\ \hline \hline
+        Train & 63 (47\%) & 70 (53\%) \\ \hline 
+        Test & 40 (71\%) & 16 (29\%)\\ \hline 
+    \end{tabular}
+    \caption{Label distribution for temporally smoothed test data}
+    \label{tab:smoothedDistribution}
+\end{table}

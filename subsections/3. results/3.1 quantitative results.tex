@@ -1,0 +1,67 @@
+\subsection{Quantitative Results}
+Table~\ref{tab:results} shows the test accuracy obtained for each model trained on PCA-transformed data and temporally smoothed data. Accuracy is reported using balanced accuracy on the held-out test set.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c||c|}
+\hline \hline
+Model & Data Format & Accuracy \\ \hline \hline
+k-Nearest Neighbours & PCA Transformed & 66.3\% \\ \hline
+Support Vector Machine & PCA Transformed & 59.5\% \\ \hline
+Random Forest Classifier & PCA Transformed & 67.8\% \\ \hline \hline
+k-Nearest Neighbours & Temporally Smoothed & 65.9\% \\ \hline
+Support Vector Machine & Temporally Smoothed & 62.0\% \\ \hline
+Random Forest Classifier & Temporally Smoothed & 76.9\% \\ \hline \hline
+\end{tabular}
+\caption{Various models with the data format trained on, with corresponding test accuracies \label{tab:results}}
+\end{table}
+Table~\ref{tab:PCAhyperparams} summarises the optimal hyperparameter configurations selected through GridSearchCV for each model on PCA-transformed data.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c||c|}
+        \hline \hline
+        Model & Hyperparameters \\ \hline \hline
+        k-Nearest Neighbours & k=35, Manhattan distance, distance based metric \\ \hline
+        Support Vector Machine & C=20, \(\gamma\)=0.1 \\ \hline
+        Random Forest Classifier & 20 maximum depth, 300 estimators \\ \hline \hline
+    \end{tabular}
+    \caption{Hyperparameters for models tested with PCA data \label{tab:PCAhyperparams}}
+\end{table}
+Figure~\ref{fig:ModelResultsPCA} presents the confusion matrices for all models trained on PCA-transformed inputs. These visualisations indicate the distribution of true versus predicted labels for each class. 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/cm_knn_pca.png}
+        \caption{k-Nearest Neighbours on PCA data with k\(=35\), Manhattan distance, and distance based metric}
+    \end{subfigure}
+    \hspace{1em}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/cm_svm_pca.png} 
+        \caption{Support Vector Machine on PCA data with \(C=10\), \(\gamma = 0.1\)}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/cm_rf_pca.png}
+        \caption{Random Forest Classifier on PCA data with maximum depth 20, number of estimators 300}
+    \end{subfigure}
+    \caption{Confusion Matrices for PCA test data on various models}
+    \label{fig:ModelResultsPCA}
+\end{figure}
+Table~\ref{tab:smoothHyperparams} summarises the optimal hyperparameter configurations selected through GridSearchCV for each model on temporally smoothed data.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c||c|}
+        \hline \hline 
+        Model & Hyperparameters \\ \hline \hline
+        k-Nearest Neighbours & 134 window size, 67 step, k=8 \\ \hline
+        Support Vector Machine & 134 window size, 67 step, \(C\)=10, \(\gamma\)=scale \\ \hline
+        Random Forest Classifier & 156 window size, 78 step, 100 estimators, no max depth \\ \hline \hline
+    \end{tabular}
+    \caption{Hyperparameters for models tested with temporally smoothed data}
+    \label{tab:smoothHyperparams}
+\end{table}
+Figure~\ref{fig:rfTemporalSmoothing} shows the confusion matrix for the best-performing model - the Random Forest Classifier - trained on smoothed data, using the best hyperparameters identified during grid search (100 estimators, no maximum depth, window size = 156, step = 78). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/cm_rf_smooth.png}
+    \caption{Random Forest Classifier on Smoothed Data}
+    \label{fig:rfTemporalSmoothing}
+\end{figure}

@@ -1,0 +1,4 @@
+\subsubsection{Temporal Smoothing}
+A moving average temporal smoothing technique was applied to retain the information from neighbouring time steps and reduce noise in the EEG signals. A sliding window was moved across the time series, and each window was replaced with the mean of its feature values. The corresponding label for each window was taken from the centre of the segment. The window was moved along by a step size of half the window size. \\
+
+Temporal smoothing improved the results for both the SVM and Random Forest models (Table~\ref{tab:results}).

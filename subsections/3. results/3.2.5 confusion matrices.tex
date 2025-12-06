@@ -1,0 +1,17 @@
+\subsubsection{Interpretation of Confusion Matrices}
+Across all models trained on PCA transformed data, label 0 (eyes open) is consistently classified more accurately than label 1 (eyes closed), as seen in Table~\ref{tab:classAccuraciesPCA}. This suggests that, after PCA, the features associated with the eyes open state are more easily separable in the lower dimensional space. PCA removes temporal structure, which appears to disproportionately affect the detection of the eyes closed state. 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c||c|c|}
+        \hline \hline 
+        Model & Class Accuracy (label 0) & Class Accuracy (label 1) \\ \hline \hline
+        k-Nearest Neighbours & 77\% & 56\% \\ \hline 
+        Support Vector Machine & 89\% & 30\% \\ \hline 
+        Random Forest & 77\% & 59\% \\ \hline \hline
+    \end{tabular}
+    \caption{Class accuracies for PCA test data as tested on various models}
+    \label{tab:classAccuraciesPCA}
+\end{table}
+In contrast, on the temporally smoothed data, the trend is the opposite: the Random Forest achieves 93\% accuracy for label 1 but only 60\% for label 0. Smoothing enhances the patterns for label 1 far more than PCA does. \\
+
+Together, these results show that PCA favours features associated with open eyes, whereas temporal smoothing reveals the patterns of closed eyes.  

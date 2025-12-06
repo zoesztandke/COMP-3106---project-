@@ -1,0 +1,15 @@
+\subsection{Dataset}
+The dataset used in this project is the famous EEG Eye State dataset, provided in ARFF format and originating from the Baden-Württemberg Cooperative State University (DHBW) in Stuttgart, Germany. \\ \\
+It contains 14,980 consecutive EEG measurements, each consisting of activity recorded from fourteen scalp electrodes placed according to the international 10-20 system, as in Figure~\ref{fig:electrodeAreas}. \\ \\
+The data show a slightly imbalanced distribution, with 6,723 instances of eyes closed and 8,257 instances of eyes open. The features consist of 14 continuous EEG readings and a single binary label column, indicating whether the participant's eyes were open (0) or closed (1) at the time of recording. The feature data is a continuous time series, and the dataset contains no missing or NaN values. The column labels are:
+\begin{itemize}
+    \item The EEG data is: \textbf{AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4}
+    \item The label column is: \textbf{eyeDetection (open (0), closed (1))}
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figures/brain areas.jpg}
+    \caption{EEG electrode placement diagram, using the international 10-20 system}
+    \label{fig:electrodeAreas}
+\end{figure}
+

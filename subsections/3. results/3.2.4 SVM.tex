@@ -1,0 +1,4 @@
+\subsubsection{Support Vector Machine Performance}
+SVM performs best on separable data. In this case, the PCA transformation did not fully separate the classes, so neither PCA nor temporal smoothing had a significant impact on the overall performance, with only a small improvement from PCA when using temporal smoothing (Table~\ref{tab:results}). \\
+
+Interestingly, SVM achieved the highest per-class accuracy for label 0 (eyes open) on the PCA data (Table~\ref{tab:classAccuraciesPCA}). However, the model tended to predict most test data as label 0, leading to poor classification of label 1 and a reduced overall accuracy.
