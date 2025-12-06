@@ -1,0 +1,7 @@
+\subsubsection{k-Nearest Neighbours}
+k-Nearest Neighbours (kNN) is a distance-based supervised classifier. It selects the k nearest data points, using a metric such as Euclidean or Manhattan distance, and classifies the data point as the most prevalent class among these k neighbours. Two weighting schemes were used: 
+\begin{itemize}
+    \item \textbf{Uniform:} equal weight is given to all k neighbours, regardless of distance from the point.
+    \item \textbf{Distance:} closer points are given more weight than further points in the final classification decision.
+\end{itemize}
+kNN performs well on labelled, noise-free data (\cite{kNNperformance}) where decision boundaries are clear. Despite EEG being noisy, kNN performed reasonably well here, suggesting that the structure of the features still contains information that separates the two classes.

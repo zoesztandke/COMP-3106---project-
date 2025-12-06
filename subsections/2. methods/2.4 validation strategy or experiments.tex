@@ -1,0 +1,11 @@
+\subsection{Validation Strategy}
+To ensure fair evaluation of all the models, a two-step validation strategy was used: 
+\begin{enumerate}
+    \item Cross-validation for hyperparameter tuning
+    \item A fixed train-test (70\%/30\%) split for final performance estimation
+\end{enumerate}
+The PCA transformed and temporally smoothed training and testing data had different structures and distributions. 
+
+The PCA data was stratified on y, to balance the classes in both the training and testing data. \\
+
+In the temporally smoothed data, this was not possible. As the temporal structure had to be maintained, the data could not be shuffled. This resulted in unbalanced testing data for the temporal data. To combat this, a balanced accuracy score from Scikit-learn was used, which scales the accuracy based on prevalence of each class. 

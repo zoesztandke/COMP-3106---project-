@@ -1,0 +1,4 @@
+\subsubsection{k-Nearest Neighbour Performance}
+kNN benefits from clear clusters in feature space. The PCA transformed data lacks clear boundaries, therefore kNN's performance is moderate. Temporal smoothing slightly lowers accuracy because kNN does not explicitly use temporal data. \\
+
+kNN achieved a balanced accuracy of 66.3\% for PCA transformed data. The confusion matrix (Figure~\ref{fig:ModelResultsPCA}) shows that the model classified label 0 (eyes open) more accurately than label 1 (eyes closed), as seen in Table~\ref{tab:classAccuraciesPCA}. This indicates that the dimensionality reduction preserved features useful for detecting eyes open, but some information for eyes closed may have been lost. 

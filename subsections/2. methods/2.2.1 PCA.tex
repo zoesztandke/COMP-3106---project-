@@ -1,0 +1,22 @@
+\subsubsection{PCA}
+PCA was applied to stratified feature data to reduce dimensionality. \\
+
+PCA is a dimensionality reduction technique, where data are represented as principal components that capture the majority of the total variance.\\
+
+A scree plot (Figure~\ref{fig:screePlot}) shows that the first four principal components capture approximately 91\% of the total variance, and this transform was applied for model training and testing. 
+
+Despite the strong reduction in dimensionality, Figure~\ref{fig:PCAexample} reveals substantial overlap between the two classes. The PCA pairplot (Figure~\ref{fig:PCApairplot}) confirms that the features are not linearly separable. 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/scree_plot_pca.png}
+        \caption{Scree plot showing variance explained by each principal component}
+        \label{fig:screePlot}
+    \end{subfigure}
+    \hspace{1em}
+    \begin{subfigure}[t]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/pca_example.png}
+        \caption{Example scatter plot of principal component 1 (PC1) against principal component 2 (PC2)}
+        \label{fig:PCAexample}
+    \end{subfigure}
+\end{figure}
